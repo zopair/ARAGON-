@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f3eb">
+  <meta name="description" content="نسّق JSON أو تحقّق من صحته أو صغّر حجمه داخل متصفحك.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'">
+  <title>منسّق JSON — ARAGON</title>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <script src="../../assets/js/shared.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body class="tool-page">
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="../../index.html" aria-label="ARAGON — الصفحة الرئيسية"><span class="brand-mark" aria-hidden="true">A</span><span>ARAGON<span class="brand-dot">.</span></span></a><nav class="main-nav" aria-label="التنقل الرئيسي"><a class="nav-link" href="../../index.html#tools">كل الأدوات</a><a class="nav-link" href="../../index.html#privacy">الخصوصية</a></nav></div></header>
+  <main id="main" class="tool-wrap">
+    <div class="tool-topline"><a class="back-link" href="../../index.html#tools"><span aria-hidden="true">→</span> العودة إلى الأدوات</a></div>
+    <section class="tool-hero"><p class="eyebrow">للمطورين · يعمل محليًا</p><h1>منسّق JSON</h1><p>رتّب البيانات لتصبح أسهل قراءة، أو صغّرها قبل إرسالها. يبقى النص في متصفحك.</p></section>
+    <section class="tool-panel" aria-label="محرر JSON">
+      <div class="editor-grid">
+        <div><label class="form-label" for="json-input">JSON المدخل</label><textarea class="text-field" id="json-input" dir="auto" spellcheck="false" placeholder='{"name":"ARAGON","ready":true}' aria-describedby="json-hint" autocomplete="off"></textarea><p class="form-hint" id="json-hint">حتى مليون محرف لكل عملية. لا تُدخل أسرارًا أو بيانات حساسة.</p></div>
+        <div><label class="form-label" for="json-output">الناتج</label><textarea class="text-field" id="json-output" dir="auto" spellcheck="false" readonly placeholder="سيظهر الناتج هنا" aria-label="ناتج JSON"></textarea></div>
+      </div>
+      <div class="field-grid editor-controls-grid">
+        <div class="field-group"><label class="form-label" for="indent-size">المسافة البادئة</label><select class="select-field" id="indent-size"><option value="2">مسافتان</option><option value="4">أربع مسافات</option><option value="tab">Tab</option></select></div>
+        <div class="field-group"><span class="form-label">إجراء التنسيق</span><div class="editor-actions editor-actions-compact"><button class="button button-primary" type="button" id="format-button">تنسيق وتحقق</button><button class="button button-secondary" type="button" id="minify-button">تصغير</button><button class="button button-secondary" type="button" id="copy-button" disabled>نسخ الناتج</button><button class="button button-danger" type="button" id="clear-button">مسح</button></div></div>
+      </div>
+      <p class="status-message" id="json-status" role="status" aria-live="polite"></p>
+    </section>
+    <p class="tool-note">تتم المعالجة محليًا في هذه الصفحة. الحد الأقصى للنص مليون محرف لتجنّب تعطّل المتصفح مع المدخلات الضخمة.</p>
+  </main>
+  <footer class="site-footer tool-footer"><div class="footer-inner"><a class="brand footer-brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">A</span><span>ARAGON<span class="brand-dot">.</span></span></a><p>أدوات بسيطة. بياناتك تبقى لك.</p><span class="footer-year">© <span data-year></span> ARAGON</span></div></footer>
+</body>
+</html>
