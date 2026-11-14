@@ -86,6 +86,27 @@ h1, h2, h3, p { margin-block-start: 0; }
 .privacy-section h2 { margin-block-end: 6px; font-size: 1.65rem; }
 .privacy-section p:not(.eyebrow) { max-width: 650px; margin: 0; color: var(--muted); font-size: .9rem; }
 .privacy-tag { padding: 7px 12px; border: 1px solid rgb(11 121 115 / 23%); border-radius: 99px; color: var(--teal-dark); font-size: .78rem; font-weight: 750; white-space: nowrap; }
+.support-section { margin-block-end: 76px; scroll-margin-top: 24px; }
+.support-heading { margin-block-end: 22px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; gap: 24px; }
+.support-heading h2 { margin-block: 0 8px; font-size: clamp(1.8rem, 3.8vw, 2.5rem); line-height: 1.25; letter-spacing: -.035em; }
+.support-heading > div > p:last-child { margin: 0; color: var(--muted); }
+.support-warning { margin: 0; padding: 13px 16px; border-inline-start: 3px solid var(--orange); border-radius: 9px; background: var(--surface-soft); color: var(--muted); font-size: .84rem; }
+.support-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.support-card { min-width: 0; padding: 18px; display: flex; flex-direction: column; align-items: stretch; gap: 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 5px 18px rgb(33 45 39 / 3%); }
+.support-card-binance { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(180px, 240px) minmax(0, 1fr); align-items: center; gap: 18px; }
+.support-binance-content { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.support-network { margin: 0; color: var(--teal-dark); font-size: .78rem; font-weight: 800; }
+.support-card h3 { margin: 0; font-size: 1.12rem; }
+.support-qr-link { display: block; width: min(100%, 220px); margin-inline: auto; padding: 8px; border-radius: 14px; background: #fff; }
+.support-qr-link img { display: block; width: 100%; height: auto; }
+.support-description { margin: 0; color: var(--muted); font-size: .84rem; }
+.support-button { width: 100%; min-height: 44px; margin-block-start: auto; }
+.support-binance-content .support-button { width: min(100%, 280px); margin-block-start: 0; }
+.support-copy-status { min-height: 1.35em; margin: 0; color: var(--muted); font-size: .77rem; }
+.support-copy-status[data-kind="success"] { color: var(--success); }
+.support-copy-status[data-kind="error"] { color: var(--danger); }
+.wallet-address { display: block; width: 100%; padding: 11px; border-radius: 10px; background: var(--surface-soft); color: var(--ink); text-align: left; font-size: .76rem; line-height: 1.55; overflow-wrap: anywhere; }
+.support-disclaimer { margin-block-start: 15px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); font-size: .81rem; }
 .site-footer { border-top: 1px solid var(--line); }
 .footer-inner { min-height: 82px; }
 .footer-inner p, .footer-year { margin: 0; color: var(--muted); font-size: .8rem; }
@@ -154,6 +175,7 @@ textarea::placeholder, input::placeholder { color: #738184; opacity: .85; }
 
 @media (max-width: 850px) {
   .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .support-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero { min-height: 410px; }
   .hero-art { min-height: 290px; }
   .privacy-section { grid-template-columns: 55px 1fr; }
@@ -171,6 +193,12 @@ textarea::placeholder, input::placeholder { color: #738184; opacity: .85; }
   .hero-center-mark { font-size: 4rem; }
   .hero-note { min-width: 118px; padding: 8px 10px; }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .support-heading { grid-template-columns: 1fr; gap: 12px; }
+  .support-grid { grid-template-columns: 1fr; }
+  .support-card-binance { grid-column: auto; grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .support-binance-content { align-items: center; }
+  .support-binance-content .support-button { width: 100%; }
+  .support-card { padding: 16px; }
   .tool-grid { gap: 10px; }
   .tool-card { min-height: 238px; padding: 17px 15px 23px; border-radius: 17px; }
   .tool-icon { width: 43px; height: 43px; margin-block-end: 12px; }

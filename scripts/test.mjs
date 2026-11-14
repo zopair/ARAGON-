@@ -108,4 +108,40 @@ await password.elements.get("clear-button").dispatch("click");
 assert.equal(password.elements.get("password-output").value, "");
 assert.equal(password.elements.get("copy-button").disabled, true);
 
-console.log("نجحت الاختبارات: تنسيق JSON، Unicode/Base64، إحصاءات النص، وتوليد كلمات المرور الآمن.");
+const supportAddress = "0x0ae8ed0a15c779920aed5de2f12796108c747fda";
+const supportStatus = { textContent: "", dataset: {} };
+const copiedAddresses = [];
+let copyHandler;
+const supportButton = {
+  dataset: { copyAddress: supportAddress },
+  addEventListener(type, callback) {
+    assert.equal(type, "click");
+    copyHandler = callback;
+  },
+  closest(selector) {
+    assert.equal(selector, "[data-address-card]");
+    return { querySelector: (query) => query === "[data-copy-status]" ? supportStatus : null };
+  }
+};
+const supportDocument = {
+  querySelectorAll(selector) {
+    if (selector === "[data-year]") return [];
+    if (selector === "[data-copy-address]") return [supportButton];
+    return [];
+  }
+};
+const supportNavigator = { clipboard: { writeText: async (text) => copiedAddresses.push(text) } };
+runInNewContext(readFileSync(resolve(root, "assets", "js", "shared.js"), "utf8"), {
+  document: supportDocument,
+  window: {},
+  navigator: supportNavigator
+}, { filename: "assets/js/shared.js" });
+await copyHandler();
+assert.deepEqual(copiedAddresses, [supportAddress]);
+assert.equal(supportStatus.dataset.kind, "success");
+supportNavigator.clipboard.writeText = async () => { throw new Error("clipboard denied"); };
+await copyHandler();
+assert.equal(supportStatus.dataset.kind, "error");
+assert.match(supportStatus.textContent, /clipboard denied/);
+
+console.log("نجحت الاختبارات: JSON، Unicode/Base64، إحصاءات النص، كلمة المرور الآمنة، ونسخ عناوين الدعم.");
